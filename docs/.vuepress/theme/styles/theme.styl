@@ -1,0 +1,232 @@
+@require './nprogress'
+@require './code'
+@require './custom-blocks'
+@require './arrow'
+@require './wrapper'
+@require './toc'
+
+*, *:before, *:after {
+  outline: none;
+  box-sizing: inherit;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html, body
+  padding 0
+  margin 0
+  background $--color-background
+  height 100%
+:focus{
+  outline 0 none
+}
+body
+  /* font-family -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif*/
+  font-family: Roboto,-apple-system,BlinkMacSystemFont,"Helvetica Neue","Segoe UI","Oxygen","Ubuntu","Cantarell","Open Sans",sans-serif;
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+  font-size $--base-font-size
+  color: $--color-text-regular
+#app
+  height 100%
+.page
+  padding-left $sidebarWidth
+
+.navbar
+  position fixed
+  z-index 20
+  top 0
+  left 0
+  right 0
+  height $navbarHeight
+  line-height $navbarHeight
+  background-color $--color-white
+  box-sizing border-box
+  border-bottom 1px solid $--border-color-base
+  display flex
+  align-items center
+
+.sidebar-mask
+  position fixed
+  z-index 9
+  top 0
+  left 0
+  width 100vw
+  height 100vh
+  display none
+
+.sidebar
+  font-size $--base-font-size
+  background-color rgb(247, 247, 247)
+  width $sidebarWidth
+  position fixed
+  z-index 10
+  margin 0
+  top $navbarHeight
+  left 0
+  bottom 0
+  box-sizing border-box
+  border-right 1px solid $--border-color-base
+  overflow-y auto
+
+.content:not(.custom)
+  @extend $wrapper
+
+  > *:first-child
+    margin-top $navbarHeight
+  a:hover
+    text-decoration none
+  p.demo
+    padding 1rem 1.5rem
+    border 1px solid #ddd
+    border-radius 4px
+  img
+    max-width 100%
+
+.content.custom
+  padding 0
+  margin 0
+  img
+    max-width 100%
+a
+  font-weight 500
+  color $--color-primary
+  text-decoration none
+  transition: all .3s ease;
+  outline: none;
+  cursor: pointer;
+  &:hover
+    text-decoration none
+    color darken($--color-primary, 50%)
+
+p a code
+  font-weight 400
+  color $--color-primary
+
+kbd
+  background #eee
+  border solid 0.15rem #ddd
+  border-bottom solid 0.25rem #ddd
+  border-radius 0.15rem
+  padding 0 0.15em
+
+blockquote
+  font-size .9rem
+  color #999
+  border-left .25rem solid #dfe2e5
+  margin 0.5rem 0
+  padding .25rem 0 .25rem 1rem
+  & > p
+    margin 0
+
+ul, ol
+  padding-left 1.2em
+
+strong
+  font-weight 600
+
+h1, h2, h3, h4, h5, h6
+  font-weight 400
+  line-height 1.25
+  display flex
+  + .demo-box{
+    margin-top: 1.5rem
+  }
+  .content:not(.custom) > &
+    margin-top (0.5rem - $navbarHeight)
+    padding-top ($navbarHeight + 1rem)
+    margin-bottom 0
+    &:first-child
+      margin-top -1rem
+      margin-bottom 1rem
+      + pre, + .custom-block
+        margin-top 2rem
+  &:hover .header-anchor
+    opacity: 1
+.content:not(.custom) > h4
+  padding-top ($navbarHeight + 0rem)
+
+h1
+  font-size ($--base-font-size + .8rem)
+  font-weight 500
+h2
+  font-size ($--base-font-size + .5rem)
+  padding-bottom .5rem
+  border-bottom 0px solid $--border-color-base
+
+h3
+  font-size ($--base-font-size + 0.3rem)
+h4
+  font-size ($--base-font-size + 0.1rem)
+
+.content:not(.custom)
+  h1
+    margin-top -5rem
+a.header-anchor
+  font-size $--base-font-size
+  float left
+  margin-left -0.87em
+  padding-right 0.23em
+  margin-top 0.125em
+  opacity 0
+  &:hover
+    text-decoration none
+
+code, kbd, .line-number
+  font-family source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace
+
+p, ul, ol
+  line-height 1.7
+
+hr
+  border 0
+  border-top 1px solid $--border-color-base
+
+table
+  border-collapse collapse
+  margin 1rem 0
+  /* display: block */
+  width:100%
+  overflow-x: auto
+
+tr
+  border-top 1px solid $--border-color-base
+  &:nth-child(2n)
+    background-color #f6f8fa
+
+th, td
+  border 1px solid $--border-color-base
+  padding .6em 1em
+th
+  background #f7f7f7
+td
+  font-size $--base-font-size - .1rem
+.theme-container
+  &.sidebar-open
+    .sidebar-mask
+      display: block
+  &.no-navbar
+    .content:not(.custom) > h1, h2, h3, h4, h5, h6
+        margin-top 1.5rem
+        padding-top 0
+    .sidebar
+      top 0
+.global-ui
+  .go-to-top
+    color $--color-white
+    width 3rem
+    height 3rem
+    padding .6rem
+    background $--color-text-primary
+    border-radius .4rem
+    &:hover
+      color $--color-text-placeholder
+.search-box input:focus
+  border-color $--color-primary
+@media (min-width: ($MQMobile + 1px))
+  .theme-container.no-sidebar
+    .sidebar
+      display none
+    .page
+      padding-left 0
+
+@require 'mobile.styl'
