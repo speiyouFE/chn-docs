@@ -85,7 +85,7 @@ export default {
         autoplay: false,
         // path: `/assets/animation/redBag/click/red_bag_05.json`,
         animationData: require('@animation/redBag/jiesuan_in/jiesuan_in.json'),
-        assetsPath: `/assets/animation/redBag/jiesuan_in/images/`
+        // assetsPath: `${this.$site.base}assets/animation/redBag/jiesuan_in/images/`
       }
     }
   },
@@ -140,7 +140,7 @@ export default {
   },
 
   mounted () {
-    
+    this.defaultOptions.assetsPath = `${this.$site.base}assets/animation/redBag/jiesuan_in/images/`
     this.showAnimation = true
     // configure progress bar
     nprogress.configure({ showSpinner: true })
@@ -151,7 +151,7 @@ export default {
       }
       next()
     })
-    
+
     this.$router.afterEach(() => {
       nprogress.done()
       this.isSidebarOpen = false
