@@ -6,7 +6,7 @@ const tools = require('./theme/util/tools')
 const isEnvProduction = process.env.NODE_ENV === 'production'
 
 module.exports = {
-  base: '/docs/',
+  base: '/',
   title: '在线文档',
   description: '在线文档',
   dest: './dist',
