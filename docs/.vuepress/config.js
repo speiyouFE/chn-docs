@@ -7,9 +7,9 @@ const isEnvProduction = process.env.NODE_ENV === 'production'
 
 module.exports = {
   base: '/docs/',
-  title: '学而思大语文在线文档',
-  description: '学而思大语文在线文档',
-  // dest: './dist',
+  title: '在线文档',
+  description: '在线文档',
+  dest: './dist',
   head: [
     ['link', { rel: 'icon', href: '/favicons.ico' }],
   ],
@@ -18,8 +18,7 @@ module.exports = {
       { text: '首页', link: '/' },
       { text: '404', link: '/test1' },
       { text: 'DEMO', link: '/about/' },
-      { text: 'TEST', link: '/test/' },
-      { text: 'GitLab', link: 'http://ssgitlab.speiyou.com/chinese/chn-iscreen-beibo'}
+      { text: 'TEST', link: '/test/' }
     ],
     sidebar: {
       '/about/': tools.getAboutSidrsBar('关于项目', '简介', '测试', '简介'),
@@ -33,24 +32,25 @@ module.exports = {
       .alias
       .set('@imgs', path.resolve(__dirname, '../assets/img/'))
       .set('@animation', path.resolve(__dirname, '../assets/animation/'))
-    isEnvProduction &&
-    config.externals({
-        'vue': 'Vue',
-        'vuex': 'Vuex',
-        'axios': 'axios',
-        'vue-router': 'VueRouter'
-      })
-    config.output
+      .end()
+    // isEnvProduction &&
+    // config.externals({
+    //     'vue': 'Vue',
+    //     'vuex': 'Vuex',
+    //     'axios': 'axios',
+    //     // 'vue-router': 'Router'
+    //   })
+    // config.output
       // .filename(isEnvProduction
       //   ? 'static/js/[name].[chunkhash:8].js'
       //   : isEnvDevelopment && 'static/js/bundle.js')
       // .chunkFilename(isEnvProduction
       //   ? 'static/js/[name].[chunkhash:8].chunk.js'
       //   : isEnvDevelopment && 'static/js/[name].chunk.js')
-      .library('TAL_CHN')
-      .libraryTarget('umd')
-      .umdNamedDefine(true)
-      .end()
+      // .library('TAL_CHN')
+      // .libraryTarget('commonjs2')
+      // .umdNamedDefine(true)
+      // .end()
     config
       .plugin('copy')
       .use(CopyWebpackPlugin, [[
