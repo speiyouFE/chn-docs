@@ -6,12 +6,12 @@ const tools = require('./theme/util/tools')
 const isEnvProduction = process.env.NODE_ENV === 'production'
 
 module.exports = {
-  base: '/',
+  // base: '/',
   title: '在线文档',
   description: '在线文档',
   dest: './dist',
   head: [
-    ['link', { rel: 'icon', href: '/favicons.ico' }],
+    ['link', { rel: 'icon', href: `/favicons.ico` }],
   ],
   themeConfig: {
     nav: [
@@ -25,32 +25,24 @@ module.exports = {
       '/test/': tools.getTestSiderBar('测试', '简介'),
     },
     lastUpdated: '最后更新',
+    editLinks: false,
+    // docsDir: 'docs',
+    // editLinkText: '帮助我们改善此页面！',
+    // repo: 'fedguide/docs',
+    // repoLabel: '查看源码',
   },
   chainWebpack (config) {
-    config
-      .resolve
+    config.resolve
       .alias
-      .set('@imgs', path.resolve(__dirname, '../assets/img/'))
-      .set('@animation', path.resolve(__dirname, '../assets/animation/'))
+        .set('@imgs', path.resolve(__dirname, '../assets/img/'))
+        .set('@animation', path.resolve(__dirname, '../assets/animation/'))
+        .end()
+    isEnvProduction &&
+    config.output
+      .library('DOCS')
+      .libraryTarget('commonjs2')
+      .umdNamedDefine(true)
       .end()
-    // isEnvProduction &&
-    // config.externals({
-    //     'vue': 'Vue',
-    //     'vuex': 'Vuex',
-    //     'axios': 'axios',
-    //     // 'vue-router': 'Router'
-    //   })
-    // config.output
-      // .filename(isEnvProduction
-      //   ? 'static/js/[name].[chunkhash:8].js'
-      //   : isEnvDevelopment && 'static/js/bundle.js')
-      // .chunkFilename(isEnvProduction
-      //   ? 'static/js/[name].[chunkhash:8].chunk.js'
-      //   : isEnvDevelopment && 'static/js/[name].chunk.js')
-      // .library('TAL_CHN')
-      // .libraryTarget('commonjs2')
-      // .umdNamedDefine(true)
-      // .end()
     config
       .plugin('copy')
       .use(CopyWebpackPlugin, [[

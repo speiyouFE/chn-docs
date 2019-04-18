@@ -107,7 +107,7 @@ $navbar-horizontal-padding = 1.5rem
     color $textColor
     position relative
     width 15rem
-    text-align right
+    text-align center
   .links
     padding-left 5rem
     box-sizing border-box

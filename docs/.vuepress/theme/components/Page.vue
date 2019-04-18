@@ -32,12 +32,12 @@
           v-if="prev"
           class="prev"
         >
-          ←
           <router-link
             v-if="prev"
             class="prev"
             :to="prev.path"
           >
+            <icon name="sealui-icon-chevron-left"></icon>
             {{ prev.title || prev.path }}
           </router-link>
         </span>
@@ -51,8 +51,8 @@
             :to="next.path"
           >
             {{ next.title || next.path }}
+            <icon name="sealui-icon-chevron-right"></icon>
           </router-link>
-          →
         </span>
       </p>
     </div>
@@ -213,10 +213,10 @@
     font-size 0.9em
     .prefix
       font-weight 500
-      color lighten($--color-text-primary, 25%)
+      color $--color-text-secondary
     .time
       font-weight 400
-      color #aaa
+      color $--color-text-secondary
 
 .page-nav
   @extend $wrapper

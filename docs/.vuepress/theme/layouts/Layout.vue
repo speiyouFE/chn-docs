@@ -30,7 +30,7 @@
       />
     </Sidebar>
 
-    <div class="animationContent" v-show="showAnimation" @click="destroyq">
+    <!-- <div class="animationContent" v-show="showAnimation" @click="destroyq">
       <animation
         :options = "defaultOptions"
         @completed="completed"
@@ -42,7 +42,7 @@
         @destroy="destroy"
         v-show="showAnimation"
       ></animation>
-    </div>
+    </div> -->
     <Home v-if="$page.frontmatter.home"/>
 
     <Page
@@ -141,7 +141,7 @@ export default {
 
   mounted () {
     this.defaultOptions.assetsPath = `${this.$site.base}assets/animation/redBag/jiesuan_in/images/`
-    this.showAnimation = true
+    this.showAnimation = false
     // configure progress bar
     nprogress.configure({ showSpinner: true })
 

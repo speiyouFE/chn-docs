@@ -105,8 +105,8 @@ exports.getAboutSidrsBar = (groupA, introductionA, groupB, introductionB) => {
       sidebarDepth: false,
       sidebarDepth: 1,
       children: [
-        ['', introductionA]
-        // ['team', '团队'],
+        ['', introductionA],
+        ['about', '关于'],
       ]
     }
   ]

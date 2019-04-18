@@ -20,12 +20,12 @@ module.exports = (options, ctx) => ({
     '@vuepress/search',
     '@vuepress/back-to-top',
     '@vuepress/medium-zoom',
-    '@vuepress/last-updated', {
+    ['@vuepress/last-updated', {
       transformer: (timestamp, lang) => {
         const moment = require('moment')
-        moment.locale(lang)
+        moment.locale('zh-cn')
         return moment(timestamp).fromNow()
       }
-    }
+    }]
   ]
 })
