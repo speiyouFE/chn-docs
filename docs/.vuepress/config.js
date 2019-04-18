@@ -37,12 +37,12 @@ module.exports = {
         .set('@imgs', path.resolve(__dirname, '../assets/img/'))
         .set('@animation', path.resolve(__dirname, '../assets/animation/'))
         .end()
-    isEnvProduction &&
-    config.output
-      .library('DOCS')
-      .libraryTarget('commonjs2')
-      .umdNamedDefine(true)
-      .end()
+    // isEnvProduction &&
+    // config.output
+    //   .library('DOCS')
+    //   .libraryTarget('commonjs2')
+    //   .umdNamedDefine(true)
+    //   .end()
     config
       .plugin('copy')
       .use(CopyWebpackPlugin, [[
