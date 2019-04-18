@@ -2,7 +2,6 @@
 
 # 一级标题
 这是测试文案
-[![Build Status](https://travis-ci.org/fedguide/docs.svg?branch=master)](https://travis-ci.org/fedguide/docs)
 
 `js code`
 
