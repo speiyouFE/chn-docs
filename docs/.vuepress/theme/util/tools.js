@@ -97,7 +97,7 @@ exports.createVue = () => {
   }]
 }
 
-exports.getAboutSidrsBar = (groupA, introductionA, groupB, introductionB) => {
+exports.getAboutSidrsBar = (groupA) => {
   return [
     {
       title: groupA,
@@ -105,8 +105,17 @@ exports.getAboutSidrsBar = (groupA, introductionA, groupB, introductionB) => {
       sidebarDepth: false,
       sidebarDepth: 1,
       children: [
-        ['', introductionA],
-        ['about', '关于'],
+        ['dragonBones', 'DragonBones'],
+      ]
+    },
+    {
+      title: groupA,
+      collapsable: true,
+      sidebarDepth: false,
+      sidebarDepth: 1,
+      children: [
+        ['spine', 'Spine'],
+        ['spine', 'Spine']
       ]
     }
   ]

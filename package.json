@@ -6,12 +6,12 @@
   "bin": {},
   "scripts": {
     "docs:dev": "vuepress dev docs",
-    "docs:build": "NODE_ENV=production vuepress build docs && echo vuepress.sealui.com>>./dist/CNAME",
+    "docs:build": "NODE_ENV=production vuepress build docs && echo chn-docs.sealui.com>>./dist/CNAME",
     "clean": "rimraf dist/* && rimraf *.log"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fedguide/docs.git"
+    "url": "https://github.com/speiyouFE/chn-docs.git"
   },
   "keywords": [
     "SealUI"

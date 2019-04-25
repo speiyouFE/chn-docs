@@ -6,5 +6,5 @@ home: true
 heroText: Hi
 description: API文档
 actionText: 快速查看 →
-actionLink: /about/
+actionLink: /loader/spine/getStart
 ---

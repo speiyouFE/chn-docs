@@ -16,14 +16,40 @@ module.exports = {
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
-      { text: '404', link: '/test1' },
-      { text: 'DEMO', link: '/about/' },
-      { text: 'TEST', link: '/test/' }
+      { text: '动效加载器', link: '/loader/spine/getStart'}
+      // { text: '404', link: '/test1' },
+      // { text: 'DEMO', link: '/about/' },
+      // { text: 'TEST', link: '/test/' }
     ],
-    sidebar: {
-      '/about/': tools.getAboutSidrsBar('关于项目', '简介', '测试', '简介'),
-      '/test/': tools.getTestSiderBar('测试', '简介'),
-    },
+    sidebar: [
+      {
+        title: 'Spine',
+        children: [
+          '/loader/spine/getStart',
+          '/loader/spine/vue',
+          '/loader/spine/react',
+          '/loader/spine/plugin',
+        ]
+      },
+      {
+        title: 'Phaser',
+        collapsable: true,
+        children: [
+          '/phaser/easing',
+          '/phaser/text',
+          '/phaser/video',
+          '/phaser/audio',
+          '/phaser/image',
+          '/phaser/draw'
+        ]
+      },
+      {
+        title: 'DragonBones',
+        children: [
+          '/loader/dragonBones',
+        ]
+      }
+    ],
     lastUpdated: '最后更新',
     editLinks: false,
     // docsDir: 'docs',
@@ -35,7 +61,7 @@ module.exports = {
     config.resolve
       .alias
         .set('@imgs', path.resolve(__dirname, '../assets/img/'))
-        .set('@animation', path.resolve(__dirname, '../assets/animation/'))
+        // .set('@animation', path.resolve(__dirname, '../assets/animation/'))
         .end()
     // isEnvProduction &&
     // config.output
@@ -43,15 +69,15 @@ module.exports = {
     //   .libraryTarget('commonjs2')
     //   .umdNamedDefine(true)
     //   .end()
-    config
-      .plugin('copy')
-      .use(CopyWebpackPlugin, [[
-      {
-        from: path.resolve(__dirname, '../assets/animation/'),
-        to: 'assets/animation',
-        ignore: ['.*']
-      }
-    ]])
+    // config
+    //   .plugin('copy')
+    //   .use(CopyWebpackPlugin, [[
+    //   {
+    //     from: path.resolve(__dirname, '../assets/animation/'),
+    //     to: 'assets/animation',
+    //     ignore: ['.*']
+    //   }
+    // ]])
   },
   markdown: {
     toc: {
