@@ -10,8 +10,6 @@ script:
   - yarn docs:build
 before_deploy:
   - export TRAVIS_COMMIT_MESSAGE="[deploy] $(git log --format='%h - %B' --no-merges -n 1)"
-  - export TRAVIS_COMMIT_USER="$(git log --no-merges -n 1 --format=%an)"
-  - export TRAVIS_COMMIT_EMAIL="$(git log --no-merges -n 1 --format=%ae)"
 deploy:
   provider: pages
   skip_cleanup: true
