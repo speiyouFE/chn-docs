@@ -79,14 +79,14 @@ export default {
   data () {
     return {
       isSidebarOpen: false,
-      showAnimation: false,
-      defaultOptions: {
-        loop: false,
-        autoplay: false,
-        // path: `/assets/animation/redBag/click/red_bag_05.json`,
-        animationData: require('@animation/redBag/jiesuan_in/jiesuan_in.json'),
-        // assetsPath: `${this.$site.base}assets/animation/redBag/jiesuan_in/images/`
-      }
+      // showAnimation: false,
+      // defaultOptions: {
+      //   loop: false,
+      //   autoplay: false,
+      //   // path: `/assets/animation/redBag/click/red_bag_05.json`,
+      //   animationData: require('@animation/redBag/jiesuan_in/jiesuan_in.json'),
+      //   // assetsPath: `${this.$site.base}assets/animation/redBag/jiesuan_in/images/`
+      // }
     }
   },
 
@@ -140,8 +140,8 @@ export default {
   },
 
   mounted () {
-    this.defaultOptions.assetsPath = `${this.$site.base}assets/animation/redBag/jiesuan_in/images/`
-    this.showAnimation = false
+    // this.defaultOptions.assetsPath = `${this.$site.base}assets/animation/redBag/jiesuan_in/images/`
+    // this.showAnimation = false
     // configure progress bar
     nprogress.configure({ showSpinner: true })
 
